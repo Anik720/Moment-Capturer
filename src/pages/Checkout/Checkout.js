@@ -5,11 +5,25 @@ import auth from '../../firebase.init';
 import LoadServices from '../../Hooks/Hooks';
 import './Checkout.css';
 const Checkout = () => {
-  const [services, setServices] = LoadServices();
   const { serviceId } = useParams();
-  console.log(serviceId);
+  const [services, setServices] = useState([]);
+  const [service, setService] = useState([]);
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/Anik720/web/main/data.json')
+      .then((res) => res.json())
+      .then((data) => {
+        setServices(data);
 
-  console.log(services);
+        //setServices(service);
+      });
+  }, []);
+  setTimeout(() => {
+    const service = services.find((x) => x.id === parseInt(serviceId));
+    setService(service);
+  }, 1000);
+
+  //console.log(typeof serviceId);
+
   return (
     <div className='h-100 '>
       <div className='row anik'>
@@ -53,7 +67,7 @@ const Checkout = () => {
         </div>
 
         <div className='col col-lg-2 col-md-12'>
-          <h1>Hello</h1>
+          <h1>{service?.name}</h1>
         </div>
       </div>
     </div>
