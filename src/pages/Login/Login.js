@@ -85,9 +85,7 @@ const Login = () => {
           />
         </Form.Group>
         <p className='text-danger'>{showerror}</p>
-        <button
-          className='d-block btn btn-outline-success"'
-          onClick={handleResetPassword}>
+        <button className='d-block btn btn-dark' onClick={handleResetPassword}>
           Forget Password?
         </button>
         <span>New Person?</span> <Link to='/signup'>Signup here</Link>
