@@ -12,13 +12,13 @@ const About = () => {
       </div>
       <div className='col col-lg-6 col-md-12'>
         <h5>
-          Greetings. This is Golam Kibria Anik who is a computer engineer and
+          Greetings, This is Golam Kibria Anik who is a computer engineer and
           passionate about web development. He has done his undergraduate degree
           from North South University and focusing on becoming a great web
           developer. Currently, he is employed as a backend developer in a
           company and also as an instructor at Amar skill. His future goal is to
           learn Machine learning, and data science and become a problem solver.
-          And his primary goal is to join Google as a software engineer.Thanks
+          And his primary goal is to join Google as a software engineer,Thanks
         </h5>
       </div>
     </div>

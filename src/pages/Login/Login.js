@@ -71,6 +71,7 @@ const Login = () => {
             ref={emailtRef}
             onBlur={handlerEmail}
             placeholder='Enter email'
+            required
           />
           <Form.Text className='text-muted'>
             We'll never share your email with anyone else.
@@ -82,13 +83,14 @@ const Login = () => {
             type='password'
             onBlur={handlerPassword}
             placeholder='Password'
+            required
           />
         </Form.Group>
         <p className='text-danger'>{showerror}</p>
         <button className='d-block btn btn-dark' onClick={handleResetPassword}>
           Forget Password?
         </button>
-        <span>New Person?</span> <Link to='/signup'>Signup here</Link>
+        <span>New Person?</span> <Link to='/signup'>Registration here</Link>
         <Button
           variant='dark'
           type='submit'

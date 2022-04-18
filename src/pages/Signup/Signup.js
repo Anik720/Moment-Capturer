@@ -29,7 +29,7 @@ const Signup = () => {
   };
   return (
     <div className='w-50 m-auto'>
-      <h1 className='text-center'>Signup</h1>
+      <h1 className='text-center'>Registration</h1>
       <Form onSubmit={handlerSubmit}>
         <Form.Group className='mb-3' controlId='formBasicEmail'>
           <Form.Label>Email address</Form.Label>
@@ -37,6 +37,7 @@ const Signup = () => {
             type='email'
             onBlur={handlerEmail}
             placeholder='Enter email'
+            required
           />
           <Form.Text className='text-muted'>
             We'll never share your email with anyone else.
@@ -49,6 +50,7 @@ const Signup = () => {
             type='password'
             onBlur={handlerPassword}
             placeholder='Password'
+            required
           />
         </Form.Group>
 

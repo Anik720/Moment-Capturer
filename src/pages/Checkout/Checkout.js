@@ -28,27 +28,50 @@ const handleCheck = () => {
 };
 return (
   <div className='h-100 '>
+    <h5 className='text-center'>Shipping Information</h5>
     <div className='row anik'>
       <div className='col col-lg-10 col-md-12 w-75'>
         <form onSubmit={handleCheck}>
           <div class='mb-3'>
             <label for='exampleInputEmail1' class='form-label'>
-              Phone Number
+              Name
+            </label>
+            <input
+              type='text'
+              class='form-control'
+              id='exampleInputEmail1'
+              aria-describedby='emailHelp'
+              required
+            />
+            <label for='exampleInputEmail1' class='form-label'>
+              Email-address
             </label>
             <input
               type='email'
               class='form-control'
               id='exampleInputEmail1'
               aria-describedby='emailHelp'
+              required
+            />
+            <label for='exampleInputEmail1' class='form-label'>
+              Phone Number
+            </label>
+            <input
+              type='text'
+              class='form-control'
+              id='exampleInputEmail1'
+              aria-describedby='emailHelp'
+              required
             />
             <label for='exampleInputEmail1' class='form-label'>
               Address
             </label>
             <input
-              type='email'
+              type='text'
               class='form-control'
               id='exampleInputEmail1'
               aria-describedby='emailHelp'
+              required
             />
           </div>
           <div class='mb-3'>
@@ -59,6 +82,7 @@ return (
               type='text'
               class='form-control'
               id='exampleInputPassword1'
+              required
             />
           </div>
 
