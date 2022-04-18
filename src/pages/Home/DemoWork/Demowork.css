@@ -1,0 +1,22 @@
+.work{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 5px;
+  
+}
+
+@media screen and (max-width:600px) {
+  .anikk{
+    width: 50%;
+    margin-right: -20px;
+  }
+  .work{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 5px;
+  }
+  .servicee img{
+    padding-right: 00px;
+    width: 400px;
+  }
+}

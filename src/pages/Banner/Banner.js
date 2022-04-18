@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 
 import Anik from '../Anik.jpg';
-
+import './Banner.css';
 const Banner = () => {
   const [index, setIndex] = useState(0);
 
@@ -12,27 +12,34 @@ const Banner = () => {
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
-        <img className='d-block w-100' src={Anik} alt='First slide' />
+        <img className='d-block w-100 golam' src={Anik} alt='First slide' />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Golam Kibria Anik</h3>
+          <p>
+            A professional photographer who will capture your best moment.I hope
+            you will stay with me after this sevices too.
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img className='d-block w-100' src={Anik} alt='Second slide' />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Golam Kibria Anik</h3>
+          <p>
+            A professional photographer who will capture your best moment.I hope
+            you will stay with me after this sevices too.
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img className='d-block w-100' src={Anik} alt='Third slide' />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Golam Kibria Anik</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            A professional photographer who will capture your best moment.I hope
+            you will stay with me after this sevices too.
           </p>
         </Carousel.Caption>
       </Carousel.Item>

@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import { async } from '@firebase/util';
+import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import {
   useAuthState,
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,14 +19,22 @@ const Login = () => {
     useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-
+  const [sendPasswordResetEmail, sending, passReseterror] =
+    useSendPasswordResetEmail(auth);
   let navigate = useNavigate();
   let location = useLocation();
+  const emailtRef = useRef('');
   const [Currentuser, Currentloading, Currenterror] = useAuthState(auth);
   let showerror;
   let from = location.state?.from?.pathname || '/';
-
-  if (error || googleerror) {
+  if (loading || googleloading || Currentloading || sending) {
+    return (
+      <div class='spinner-border text-primary' role='status'>
+        <span class='visually-hidden'>Loading...</span>
+      </div>
+    );
+  }
+  if (error || googleerror || Currenterror || passReseterror) {
     showerror = (
       <div>
         <p>Error: {error.message}</p>
@@ -42,6 +55,11 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
     e.preventDefault();
   };
+  const handleResetPassword = async () => {
+    const email = emailtRef.current.value;
+    await sendPasswordResetEmail(email);
+    toast('Sent email');
+  };
   return (
     <div className='w-50 m-auto'>
       <h1 className='text-center'>Login</h1>
@@ -50,6 +68,7 @@ const Login = () => {
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type='email'
+            ref={emailtRef}
             onBlur={handlerEmail}
             placeholder='Enter email'
           />
@@ -66,6 +85,11 @@ const Login = () => {
           />
         </Form.Group>
         <p className='text-danger'>{showerror}</p>
+        <button
+          className='d-block btn btn-outline-success"'
+          onClick={handleResetPassword}>
+          Forget Password?
+        </button>
         <span>New Person?</span> <Link to='/signup'>Signup here</Link>
         <Button
           variant='dark'
@@ -85,6 +109,7 @@ const Login = () => {
           Google login
         </Button>
       </Form>
+      <ToastContainer />
     </div>
   );
 };

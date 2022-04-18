@@ -37,6 +37,9 @@ const Header = () => {
                 Services
               </Nav.Link>
 
+              <Nav.Link as={Link} to='/blogs'>
+                Blogs
+              </Nav.Link>
               <Nav.Link as={Link} to='/about'>
                 About
               </Nav.Link>
@@ -52,9 +55,14 @@ const Header = () => {
             </Form>
 
             {user ? (
-              <button onClick={logout}>Signout</button>
+              <button onClick={logout} className='btn btn-outline-success'>
+                Signout
+              </button>
             ) : (
-              <Nav.Link as={Link} to='/login' className='text-dark'>
+              <Nav.Link
+                as={Link}
+                to='/login'
+                className='text-dark btn btn-outline-success'>
                 Login
               </Nav.Link>
             )}
